@@ -53,6 +53,28 @@ for (let i = 0; i < testimonialsItem.length; i++) {
 modalCloseBtn.addEventListener("click", testimonialsModalFunc);
 overlay.addEventListener("click", testimonialsModalFunc);
 
+//GitHub
+const githubUsername = "Bot-37"; // Change this to your GitHub username
+const githubAPI = `https://api.github.com/users/${githubUsername}`;
+
+async function fetchGitHubData() {
+  try {
+    const response = await fetch(githubAPI);
+    const data = await response.json();
+
+    document.getElementById("github-avatar").src = data.avatar_url;
+    document.getElementById("github-name").textContent = data.name || githubUsername;
+    document.getElementById("github-bio").textContent = data.bio || "No bio available.";
+    document.getElementById("github-repos").textContent = data.public_repos;
+    document.getElementById("github-followers").textContent = data.followers;
+    document.getElementById("github-following").textContent = data.following;
+
+  } catch (error) {
+    console.error("GitHub API Error:", error);
+  }
+}
+
+fetchGitHubData();
 
 
 // custom select variables

@@ -829,6 +829,35 @@ main {
   line-height: 1.6;
 }
 
+/**
+ * GitHub 
+ */
+
+.github-profile {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.github-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.github-stats p {
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+.github-contributions img {
+  width: 100%;
+  max-width: 600px;
+  margin-top: 10px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
 
 /**
  * skills 
@@ -867,7 +896,75 @@ main {
   border-radius: inherit;
 }
 
+/*-----------------------------------*\
+  #SKILLS & LANGUAGES
+\*-----------------------------------*/
 
+.skills-title { margin-bottom: 20px; }
+
+.skills-list { padding: 20px; }
+
+.skills-item:not(:last-child) { margin-bottom: 15px; }
+
+.skill .title-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 8px;
+}
+
+/* Known Languages Section */
+.skills-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 1.5rem;
+  padding: 1rem;
+}
+
+.skill-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: var(--transition-1);
+}
+
+.skill-item:hover {
+  transform: translateY(-5px);
+}
+
+.skill-icon img {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 0.5rem;
+  transition: var(--transition-1);
+}
+
+.skill-name {
+  font-size: 0.9rem;
+  color: var(--white-2);
+  font-weight: var(--fw-300);
+}
+
+/* Responsive Adjustments */
+@media (min-width: 580px) {
+  .skills-container {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 2rem;
+    padding: 1.5rem;
+  }
+
+  .skill-icon img {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .skills-container {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  }
+}
 
 
 
