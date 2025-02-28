@@ -53,13 +53,20 @@ for (let i = 0; i < testimonialsItem.length; i++) {
 modalCloseBtn.addEventListener("click", testimonialsModalFunc);
 overlay.addEventListener("click", testimonialsModalFunc);
 
-//GitHub
-const githubUsername = "Bot-37"; // Change this to your GitHub username
+// GitHub Configuration
+const githubUsername = "Bot-37";  // Change to your GitHub username
+const repoName = "Bot-37";        // Change to your repository name
+const readmeURL = `https://raw.githubusercontent.com/${githubUsername}/${repoName}/main/README.md`;
 const githubAPI = `https://api.github.com/users/${githubUsername}`;
 
 async function fetchGitHubData() {
   try {
     const response = await fetch(githubAPI);
+
+    if (!response.ok) {
+      throw new Error(`GitHub API Error: ${response.status} ${response.statusText}`);
+    }
+
     const data = await response.json();
 
     document.getElementById("github-avatar").src = data.avatar_url;
@@ -69,12 +76,17 @@ async function fetchGitHubData() {
     document.getElementById("github-followers").textContent = data.followers;
     document.getElementById("github-following").textContent = data.following;
 
+    // Fetch and display README file
+    fetchReadme();
+
   } catch (error) {
-    console.error("GitHub API Error:", error);
+    console.error(error);
+    document.getElementById("github-name").textContent = "GitHub Data Not Available";
   }
 }
 
-fetchGitHubData();
+// Fetch 
+
 
 
 // custom select variables
